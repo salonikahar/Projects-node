@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 40px;">
+
+    <h2 style="color: #343a40; text-align: center; margin-bottom: 30px;">Add Task</h2>
+
+    <form action="/add" method="post" style="display: flex; justify-content: center; margin-bottom: 40px;">
+        <table style="background-color: #ffffff; padding: 20px; border: 1px solid #dee2e6; border-radius: 8px;">
+            <tr>
+                <td style="padding: 10px;">
+                    <input type="text" name="name" placeholder="Enter task here"
+                        style="padding: 10px 14px; width: 300px; border: 1px solid #ced4da; border-radius: 4px; font-size: 16px;">
+                </td>
+                <td style="padding: 10px;">
+                    <input type="submit" value="Submit"
+                        style="padding: 10px 20px; background-color: #28a745; color: white; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h1 style="text-align: center; color: #343a40; margin-bottom: 20px;">Task List</h1>
+
+    <table border="1" style="width: 80%; margin: 0 auto; background-color: #ffffff; border-collapse: collapse; border: 1px solid #dee2e6;">
+        <thead>
+            <!-- <tr style="background-color: #007bff; color: white;">
+                <th style="padding: 12px;">No</th>
+                <th style="padding: 12px;">Task</th>
+                <th style="padding: 12px;">Action</th>
+            </tr> -->
+        </thead>
+        <tbody>
+            <% record.map((v, i) => { %>
+                <tr style="text-align: center; border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 12px;"><%= ++i %></td>
+                    <td style="padding: 12px;"><%= v.name %></td>
+                    <td style="padding: 12px;">
+                        <a href="/deleteData/<%= --i %>">
+                            <button
+                                style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</body>
+
+
+
+</html>
